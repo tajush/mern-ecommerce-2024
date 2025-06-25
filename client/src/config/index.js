@@ -29,6 +29,11 @@ export const loginFormControls = [
     placeholder: "Enter your email",
     componentType: "input",
     type: "email",
+    options:[
+      {id:'us',label:'us'},
+      {id:'uk',label:'uk'},
+      {id:'in',label:'in'},
+    ]
   },
   {
     name: "password",
@@ -36,6 +41,11 @@ export const loginFormControls = [
     placeholder: "Enter your password",
     componentType: "input",
     type: "password",
+     options:[
+      {id:'us',label:'us'},
+      {id:'uk',label:'uk'},
+      {id:'in',label:'in'},
+    ]
   },
 ];
 

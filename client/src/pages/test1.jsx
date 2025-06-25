@@ -17,28 +17,26 @@ function CommonForm({
   onSubmit,
   buttonText,
   isBtnDisabled,
-})
-
- {
+}) {
   function renderInputsByComponentType(getControlItem) {
-    console.log(getControlItem,"getControlItem");
     let element = null;
     const value = formData1[getControlItem.name] || "";
-    console.log(value, "value");
 
     switch (getControlItem.componentType) {
       case "input":
         element = (
           <Input
-           name={getControlItem.name}
+            name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.name}
             type={getControlItem.type}
             value={value}
-            onChange={(event)=>{
-              setFormData({...formData1,[getControlItem.name]:event.target.value})
-            }}
-
+            onChange={(event) =>
+              setFormData({
+                ...formData1,
+                [getControlItem.name]: event.target.value,
+              })
+            }
           />
         );
 
@@ -116,17 +114,13 @@ function CommonForm({
         {formControls1.map((controlItem) => (
           <div className="grid w-full gap-1.5" key={controlItem.name}>
             <Label className="mb-1">{controlItem.label}</Label>
-           <div>
             {renderInputsByComponentType(controlItem)}
-           </div>
           </div>
         ))}
       </div>
       <Button disabled={isBtnDisabled} type="submit" className="mt-2 w-full">
         {buttonText || "Submit"}
       </Button>
-  
-
     </form>
   );
 }
